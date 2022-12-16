@@ -79,7 +79,6 @@ In addition, **there is no difference between the model performance by using the
 - We examined the average performance over multiple NLP datasets, and the Macro-F1 scores are generally lower than those in the original paper. I think there are performance gaps between different datasets. The datasets we chose, which were different from the ones used in the original paper and included NLI and sentiment analysis datasets, might be harder for LMS.
 - Due to a large amount of time we needed to spend on experiments and the limited computational resources, we cannot perform the experiments with a large number of data with the same task as in the paper [4], which might account for inconsistent results with the paper. In other words, the performance gaps between different types of tasks might also contribute to the bad results. Also, we have an idea that we want to examine how LMs performance varies with different NLP tasks (e.g., NLI, sentiment analysis, etc.). If we have more time and more powerful GPUs, we can design our experiments based on the type of tasks to see if we can achieve more generalizable results.
 
-
 ## Reference
 1. Brown, Tom, et al. "Language models are few-shot learners." Advances in neural information processing systems 33 (2020): 1877-1901.
 2. Min, Sewon, et al. "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?." arXiv preprint arXiv:2202.12837 (2022).
