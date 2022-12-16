@@ -16,6 +16,8 @@ In this project, we are interesting in the result claimed in [2], which states t
 The related works, which are usually referred as "prompt engineering", aims to find a general way to design the prompt for different downstream tasks. The main idea for our project came from the paper “Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?” [2], where researchers studied what aspects of the demonstrations help the model learn and improve its performance on the final task. Specifically, we want to perform some experiments on (1) input distribution, (2) output distribution, (3) input-output mapping, and (4) formatting to study how the input distributions and output distributions affect the performance of the model for in-context learning, following the idea
 from [2]. [3] provides a great review on literatures in this field. Besides designing better prompt to improve the performance, understanding what is important and what contributes to the in-context "learning" behavior is another importnat topic. Papers like [2] and [4] did ablation on various perspestive of prompt designs and conclude that some parts of the prompt are more important than others. The code we adopted came from [github repo](https://github.com/Alrope123/rethinking-demonstrations).
 
+
+
 ## Methodology
 ##### Input-label mapping
 
@@ -24,6 +26,9 @@ from [2]. [3] provides a great review on literatures in this field. Besides desi
 ##### Label space
 
 ##### prompt format
+
+
+
 ## Experiments
 ##### Models 
 We experimented with 4 models in total. We provide 2 dense, decoder-only language models, GPT-J-6B and GPT-2-Large. We employ each LM with the direct and channel inference approaches, following Min et al. (2021a). 
@@ -35,6 +40,13 @@ In addition to the datasets the authors used in their experiments, we experiment
 We use k = 16 examples as demonstrations by default for all experiments in the paper unless otherwise specified. Examples are sampled at uniform from the training data. We choose a set of k training examples using 5 different random seeds and run experiments 5 times. For each dataset and seed, we used 100-200 test examples to calculate the average for our F1 score. Therefore, we have ~6000 test examples in total in each experiment We report Macro-F1 scores for classification tasks. We compute the per-dataset average over seeds and then report the macro-average over datasets. We use minimal templates in forming an input sequence from an example. We refer to the original paper’s Appendix B for more details. 
 ##### Computational Resources
 Our group have a RTX 3080 and an A40 GPUs along with 32 GB memory to perform the experiments. All experiments we did took us more than 40 GPU hours in total. 
+
+## Modifications
+1. Inspired by the paper [4], when we study the impact of the prompt format, in addition to comparing the model performance with minimal prompt and manual prompt template, we added experiments with using the irrelevant and misleading prompt templates to see if models can really "understand" the meaning of the prompt. 
+2. Inspired by the paper [5], when we study the impact of the label space, in addition to comparing the results of the experiment using random English words labels and the one using random labels, we added one more experiment using the proxy labels, which kept the input-label mappings (between classes in the label set and examples in the dataset) the same, but changed what surface form/label represented the classes. Therefore, we can compare its results with the demonstrations with gold label to see how label space influence the model performance in in-context learning.
+3. In the out-of-distribution input text experiment, we used the part of texts from the <em>Constitution of India</em> that we found online, which we thought are the text out of the domain of the training data that we used in the experiments. 
+4. We performed the experiments with different datasets from the original paper, which seem to be harder datasets for language models. Also, we tried 5 different random seeds with seed = 3, 4, 5, 7, 19. 
+
 
 ## Results
 ##### Input-Label Mapping
@@ -57,6 +69,7 @@ Based on the figure, we find that models trained with instructive templates gene
 2. Min, Sewon, et al. "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?." arXiv preprint arXiv:2202.12837 (2022).
 3. Liu, Pengfei, et al. "Pre-train, prompt, and predict: A systematic survey of prompting methods in natural language processing." arXiv preprint arXiv:2107.13586 (2021).
 4. Webson, Albert, and Ellie Pavlick. "Do Prompt-Based Models Really Understand the Meaning of their Prompts?." arXiv preprint arXiv:2109.01247 (2021).
+5. Blevins, T., Gonen, H., & Zettlemoyer, L. "Prompting language models for linguistic structure." arXiv preprint arXiv: 2211.07830 (2022).
 
 ## Appendix
 #### A. Full Datasets
