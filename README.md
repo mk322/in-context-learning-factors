@@ -8,9 +8,11 @@ There has been various techniques proposed to improve the performance under prom
 ## Introduction
 As demonstrated first in the GPT3 paper published by OpenAI [1], the large language model (here we are talking about the model that is in the scale of a few hundred million parameters to a few hundred billion parameters) that is pretrained on the general auto-regressive language modeling objective can achieve state-of-the-art performance on various downstream tasks **without** updating any parameters. The techniques to achieve such result, referred as "in-context learning" or "prompting", attracted lots of research attention due to its simplicity, sample efficientcy, and memory efficiency.
 
-In-context learning is usually discussed under the context of few-shot learning or zero-shot learning. Given a downstream task, in the zero-shot setup, we will prepend a string of task description to the input $x$; while in the few-shot setup, we will prepend a list of ($x_i$, $y_i$) pair to the input $x$. An example of in-context learning in both setup is illustrated in Figure 1.
+In-context learning is usually discussed under the context of few-shot learning or zero-shot learning. Given a downstream task, in the zero-shot setup, we will prepend a string of task description to the input $x$; while in the few-shot setup, we will prepend a list of ($x_i$, $y_i$) pair to the input $x$. An example of in-context learning in both setup is illustrated in the figure below.
 
-In this project, we are interesting in the result claimed in [2], which states that the input-output pairing is actually **not** important. i.e.: the prompts could contains wrong examples and still achieve high performance. What actually matters is the distribution of the input text (the $x_i$ part in the prompt) and the label space (does the prompt contain all labels and only all the labels we can possibly have in the dataset). This is an interesting finding since usually we would think the input-label pairing is important as it demonstrates to the model how to do the task.
+![](ICL.PNG) 
+
+In this project, we are interesting in the result claimed in [2], which states that the input-output pairing is actually **not** important. i.e.: the prompts could contains wrong examples and still achieve high performance. What actually matters is the distribution of the input text (the $x_i$ part in the prompt) and the label space (does the prompt contain all labels and only all the labels we can possibly have in the dataset). This is an interesting finding since usually we would think the input-label pairing is important as it demonstrates to the model how to do the task. Another work we focused on is [4], which claimed that the input distribution could be irrelavant. This seems to contradict with the result in [2], thus we also reproduced experiments in [4] to verify its claim.
 
 ## Related Works
 The related works, which are usually referred as "prompt engineering", aims to find a general way to design the prompt for different downstream tasks. The main idea for our project came from the paper “Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?” [2], where researchers studied what aspects of the demonstrations help the model learn and improve its performance on the final task. Specifically, we want to perform some experiments on (1) input distribution, (2) output distribution, (3) input-output mapping, and (4) formatting to study how the input distributions and output distributions affect the performance of the model for in-context learning, following the idea
@@ -19,9 +21,12 @@ from [2]. [3] provides a great review on literatures in this field. Besides desi
 
 
 ## Methodology
+In this project, we mainly focus on reproducing the result from [2] and [4]. Since we are only interested in in-context learning performance, there is no model training involved and we directly take pretrained model on Huggingface for evaluating the performance. We used two gpus with 8G memory each to run the experiements.
 ##### Input-label mapping
+In this part, we shuffled the label for each sample in the demonstrations based on the random seed to generate data for "random label" test. The gold label, and no demo data can be obtained from the original data.
 
 ##### Distribution of the input text
+In this part, 
 
 ##### Label space
 
