@@ -3,7 +3,7 @@
 ## Abstract
 Large pretrained language model has gained more and more attention in recent years. Not only because of their representation power and superior performance with traditional fine-tuning on various dataset, its ability of generalizing to new task with "in-context learning" opened another path of Natural Language Processing (NLP) research.
 
-There has been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred as "prompt engineering". Motivated by a recent paper [2]
+There has been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred as "prompt engineering". Motivated by a recent paper [2], in this project we test various aspect of prompt to see what matters for the performance of in-context learning.
 
 ## Introduction
 As demonstrated first in the GPT3 paper published by OpenAI [1], the large language model (here we are talking about the model that is in the scale of a few hundred million parameters to a few hundred billion parameters) that is pretrained on the general auto-regressive language modeling objective can achieve state-of-the-art performance on various downstream tasks **without** updating any parameters. The techniques to achieve such result, referred as "in-context learning" or "prompting", attracted lots of research attention due to its simplicity, sample efficientcy, and memory efficiency.
@@ -21,18 +21,18 @@ from [2]. [3] provides a great review on literatures in this field. Besides desi
 
 
 ## Methodology
-In this project, we mainly focus on reproducing the result from [2] and [4]. Since we are only interested in in-context learning performance, there is no model training involved and we directly take pretrained model on Huggingface for evaluating the performance. We used two gpus with 8G memory each to run the experiements.
+In this project, we mainly focus on reproducing the result from [2] and [4]. Since we are only interested in in-context learning performance, there is no model training involved and we directly take pretrained model on Huggingface for evaluating the performance.
 ##### Input-label mapping
-In this part, we shuffled the label for each sample in the demonstrations based on the random seed to generate data for "random label" test. The gold label, and no demo data can be obtained from the original data.
+In this part, we shuffled the label for each sample in the demonstrations based on the random seed to generate data for "random label" test. The gold label, and no demo data can be obtained from the original data. For the experiments of this part, we fixed the input text, but replace the label of each demonstration with a random label in the original label space.
 
 ##### Distribution of the input text
-In this part, we randomly replaced the input text with one of the lines from *the Constitution of India*. Since there is no ground-truth in this experiment, the label here is essentially the random label.
+In this part, we randomly replaced the input text with one of the lines from *the Constitution of India*. Since there is no ground-truth in this experiment, the label here is essentially the random label. For the experiments of this prat, we are not varying the label (not meaningful) and change the input context of each demonstration.
 
 ##### Label space
-In this part, we replaced the label space with either the proxy the label, in which the input-label mapping stay the same, but we replace the label set with another set that has different surface form. For the random English words experiments, we used some random Pokemon names to replace each label in the demonstration.
+In this part, we replaced the label space with either the proxy the label, in which the input-label mapping stay the same, but we replace the label set with another set that has different surface form. For the random English words experiments, we used some random Pokemon names to replace each label in the demonstration. For the experiments of this part, we fixed the input context and replace the label of each demonstration with a different English word that is not in the original label space.
 
 ##### Template format
-In this part, for each task, we designed an irrelevant template and a misleading template to replace the original demonstration template. For the irrelevant template, it should be something that has no relationship with the task at all, and for the misleading template, it should be try to provide a misleading way of doing the task that could potentially harm the performance.
+In this part, for each task, we designed an irrelevant template and a misleading template to replace the original demonstration template. For the irrelevant template, it should be something that has no relationship with the task at all, and for the misleading template, it should be try to provide a misleading way of doing the task that could potentially harm the performance. For the experiments of this part, we fixed the core input and label, but changes the template that is added in addition to the input to make it sounds more natural for each demonstration.
 
 
 
