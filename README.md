@@ -8,7 +8,7 @@ There has been various techniques proposed to improve the performance under prom
 ## Introduction
 As demonstrated first in the GPT3 paper published by OpenAI [1], the large language model (here we are talking about the model that is in the scale of a few hundred million parameters to a few hundred billion parameters) that is pretrained on the general auto-regressive language modeling objective can achieve state-of-the-art performance on various downstream tasks **without** updating any parameters. The techniques to achieve such result, referred as "in-context learning" or "prompting", attracted lots of research attention due to its simplicity, sample efficientcy, and memory efficiency.
 
-In-context learning is usually discussed under the context of few-shot learning or zero-shot learning. Given a downstream task, in the zero-shot setup, we will prepend a string of task description to the input $x$; while in the few-shot setup, we will prepend a list of ($x_i$ , $y_i$) pair to the input $x$. An example of in-context learning in both setup is illustrated in the figure below.
+In-context learning is usually discussed under the context of few-shot learning or zero-shot learning. Given a downstream task, in the zero-shot setup, we will prepend a string of task description to the input $x$; while in the few-shot setup, we will prepend a list of ($x_i$, $y_i$) pair to the input $x$. An example of in-context learning in both setup is illustrated in the figure below.
 
 ![](ICL.PNG) 
 
