@@ -3,11 +3,7 @@
 ## Abstract
 Large pretrained language model has gained more and more attention in recent years. Not only because of their representation power and superior performance with traditional fine-tuning on various dataset, its ability of generalizing to new task with "in-context learning" opened another path of Natural Language Processing (NLP) research.
 
-<<<<<<< HEAD
 There has been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred as "prompt engineering". Motivated by a recent paper [2], in this project we test various aspect of prompt to see what matters for the performance of in-context learning.
-=======
-There has been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred as "prompt engineering". Motivated by a recent paper [2].
->>>>>>> 13096fe002c7b95eedca6a1bfc6fb248bb7e202a
 
 ## Introduction
 As demonstrated first in the GPT3 paper published by OpenAI [1], the large language model (here we are talking about the model that is in the scale of a few hundred million parameters to a few hundred billion parameters) that is pretrained on the general auto-regressive language modeling objective can achieve state-of-the-art performance on various downstream tasks **without** updating any parameters. The techniques to achieve such result, referred as "in-context learning" or "prompting", attracted lots of research attention due to its simplicity, sample efficientcy, and memory efficiency.
