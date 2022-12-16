@@ -26,11 +26,13 @@ In this project, we mainly focus on reproducing the result from [2] and [4]. Sin
 In this part, we shuffled the label for each sample in the demonstrations based on the random seed to generate data for "random label" test. The gold label, and no demo data can be obtained from the original data.
 
 ##### Distribution of the input text
-In this part, 
+In this part, we randomly replaced the input text with one of the lines from *the Constitution of India*. Since there is no ground-truth in this experiment, the label here is essentially the random label.
 
 ##### Label space
+In this part, we replaced the label space with either the proxy the label, in which the input-label mapping stay the same, but we replace the label set with another set that has different surface form. For the random English words experiments, we used some random Pokemon names to replace each label in the demonstration.
 
 ##### Template format
+In this part, for each task, we designed an irrelevant template and a misleading template to replace the original demonstration template. For the irrelevant template, it should be something that has no relationship with the task at all, and for the misleading template, it should be try to provide a misleading way of doing the task that could potentially harm the performance.
 
 
 
