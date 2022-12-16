@@ -1,4 +1,4 @@
-﻿# 499G1/590G1 Final Project Report
+﻿# 490G1/590G1 Final Project Report
 
 ## Abstract
 Large pretrained language model has gained more and more attention in recent years. Not only because of their representation power and superior performance with traditional fine-tuning on various dataset, its ability of generalizing to new task with "in-context learning" opened another path of Natural Language Processing (NLP) research.
