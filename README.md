@@ -1,7 +1,7 @@
 ﻿# 499G1/590G1 Final Project Report
 
 ## Abstract
-Large pretrained language model has gained more and more attention in recent years. Not only because of their representation power and superior performance with traditional fine-tuning on various dataset, its ability of generalizing to new task with "in-context learning" opened another path of Natural Language Processing (NLP) research.
+Large pretrained language model has gained more and more attention in recent years. Not only because of their representation power and superior performance with traditigitonal fine-tuning on various dataset, its ability of generalizing to new task with "in-context learning" opened another path of Natural Language Processing (NLP) research.
 
 There has been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred as "prompt engineering". Motivated by a recent paper [2], in this project we test various aspect of prompt to see what matters for the performance of in-context learning.
 
@@ -26,7 +26,7 @@ In this project, we mainly focus on reproducing the result from [2] and [4]. Sin
 In this part, we shuffled the label for each sample in the demonstrations based on the random seed to generate data for "random label" test. The gold label, and no demo data can be obtained from the original data. For the experiments of this part, we fixed the input text, but replace the label of each demonstration with a random label in the original label space.
 
 ##### Distribution of the input text
-In this part, we randomly replaced the input text with one of the lines from *the Constitution of India*. Since there is no ground-truth in this experiment, the label here is essentially the random label. For the experiments of this prat, we are not varying the label (not meaningful) and change the input context of each demonstration.
+In this part, we randomly replaced the input text with one of the lines from *the Constitution of India*. Since there is no ground-truth in this experiment, the label here is essentially the random label. For the experiments of this part, we are not varying the label (not meaningful) and change the input context of each demonstration.
 
 ##### Label space
 In this part, we replaced the label space with either the proxy the label, in which the input-label mapping stay the same, but we replace the label set with another set that has different surface form. For the random English words experiments, we used some random Pokemon names to replace each label in the demonstration. For the experiments of this part, we fixed the input context and replace the label of each demonstration with a different English word that is not in the original label space.
