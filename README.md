@@ -95,4 +95,4 @@ We include 7 datasets as follows: poem_sentiment (Sheng and Uthus, 2020), glue-w
 Table 1: 7 datasets used for experiments. # Train and # Test indicate the number of training and test examples of the dataset. Note that # train is based on the original training dataset but we use k random samples for k-shot evaluation.
 
 ## Video Walkthrough
-![](https://drive.google.com/file/d/1_6tmnp_SZhIO4N1t-FIcPVENzGp48LA4/view?usp=sharing)
+[](https://drive.google.com/file/d/1_6tmnp_SZhIO4N1t-FIcPVENzGp48LA4/view?usp=sharing)
