@@ -6,6 +6,9 @@ Large pretrained language model has gained more and more attention in recent yea
 
 There have been various techniques proposed to improve the performance under prompting setup. Those techniques are generally referred to as "prompt engineering". Motivated by a recent paper [2], in this project we tested various aspects of prompt to see what matters for the performance of in-context learning, and successfully reproduced most of the results in the original paper with finding several surprising results.
 
+## Video Walkthrough
+![The video](https://drive.google.com/file/d/1_6tmnp_SZhIO4N1t-FIcPVENzGp48LA4/view?usp=sharing)
+
 ## Introduction
 As demonstrated first in the GPT3 paper published by OpenAI [1], the large language model (here we are talking about the model that is in the scale of a few hundred million parameters to a few hundred billion parameters) that is pretrained on the general auto-regressive language modeling objective can achieve state-of-the-art performance on various downstream tasks **without** updating any parameters. The techniques to achieve such results, referred to as "in-context learning" or "prompting", attracted lots of research attention due to its simplicity, sample efficiency, and memory efficiency.
  
@@ -93,6 +96,3 @@ In addition, **there is no difference between the model performance by using the
 We include 7 datasets as follows: poem_sentiment (Sheng and Uthus, 2020), glue-wnli (Levesque et al., 2012), climate_fever (Diggelmann et al., 2020), glue-rte (Dagan et al., 2005; Bar-Haim et al., 2006; Giampiccolo et al., 2007; Bentivogli et al., 2009), superglue-cb (de Marneffe et al., 2019), sick (Marelli et al., 2014) , CoLA (Warstadt et al., 2019). The choice of datasets is made following low-resource datasets in Min et al. (2021b), with the exact same set of k-shot train data using 5 random seeds. We use the HuggingFace version of the data (Lhoest et al., 2021) and use the development data for evaluation, following Ye et al. (2021). See Table 1 for statistics.
 **![](https://lh3.googleusercontent.com/jay_lcZ7QOxJ5JVvLr3XHz7-EQcu_iqwcY4_QPG0Wj2cWTRAkfuWQgRaCg2d6z0MrGZfCtfX_sMbPsU0nDUC4BAQja895ADSq53I6Q3sZFQ_3edISmOlM_ny8hrAAPDIcarBB1UAdumn4PkqUSEcvHKlgRhVnQAIkleQFO4qKueScTwjnh9Cdx-lzQ-Zhg)**
 Table 1: 7 datasets used for experiments. # Train and # Test indicate the number of training and test examples of the dataset. Note that # train is based on the original training dataset but we use k random samples for k-shot evaluation.
-
-## Video Walkthrough
-[](https://drive.google.com/file/d/1_6tmnp_SZhIO4N1t-FIcPVENzGp48LA4/view?usp=sharing)
